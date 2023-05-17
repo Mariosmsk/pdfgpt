@@ -28,7 +28,8 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
-    description="pdfgpt is a Python package that provides users with the ability to engage in natural language conversations with their PDF documents.",
+    description="pdfgpt is a Python package that provides users with the ability to engage in natural language "
+                "conversations with their PDF documents.",
     entry_points={
         'console_scripts': [
             'pdfgpt=pdfgpt.cli:main',
@@ -44,6 +45,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/Mariosmsk/pdfgpt',
-    version='0.1.0',
+    version='0.1.1',
     zip_safe=False,
 )
