@@ -11,3 +11,7 @@ Click==7.1.2
 openai
 pandas
 pypdf
+matplotlib
+plotly
+scipy
+scikit-learn

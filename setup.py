@@ -10,7 +10,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=7.0', 'openai', 'pandas', 'pypdf']
+requirements = ['Click>=7.0', 'openai', 'pandas', 'pypdf', 'matplotlib', 'plotly', 'scipy', 'scikit-learn']
 
 test_requirements = [ ]
 
