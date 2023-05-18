@@ -10,7 +10,13 @@ pdfgpt
         :target: https://pdfgpt.readthedocs.io/en/latest/?version=latest
         :alt: Documentation Status
 
+.. image:: https://pepy.tech/badge/pdfgpt
+        :target: https://pepy.tech/badge/pdfgpt
+        :alt: Downloads
 
+.. image:: https://pepy.tech/badge/pdfgpt/month
+        :target: https://pepy.tech/badge/pdfgpt
+        :alt: Downloads
 
 pdfgpt is a Python package that provides users with the ability to engage in natural language conversations with their PDF documents.
 
