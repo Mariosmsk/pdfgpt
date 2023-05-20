@@ -24,6 +24,8 @@ pdfgpt is a Python package that provides users with the ability to engage in nat
 * Free software: MIT license
 * Documentation: https://pdfgpt.readthedocs.io.
 
+**Source:** Openai - https://github.com/openai/openai-cookbook
+
 How to install
 ---------------
 
