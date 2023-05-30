@@ -43,20 +43,34 @@ Example
     d = PDFBot(openai_key='OPENAI_KEY')
 
     print('Example')
-    extracted_text, num_pages = d.generateText(file_path='PDF_NAME.pdf')
+    extracted_text, num_pages = d.generateText(file_path='tests/epanet_matlab_toolkit.pdf')
     df = d.generateEmbeddings(extracted_text)
 
-    print('USER')
-    prompt = d.generatePrompt(df, num_pages, 'what is the epanet?')
-    response = d.sendPrompt(prompt)
+    print('USER: What is EPANET?')
+    prompt = d.generatePrompt(df, num_pages, 'What is EPANET?')
+    response = d.sendPrompt(prompt, model="gpt-3.5-turbo")
+    print('AI')
+    print(response, '\n')
+
+What is EPANET?
+
+EPANET is a software for modeling water distribution systems' hydraulic and quality dynamics, initially developed by the US Environmental Protection Agency in the C programming language in 1994. It uses a geometric representation of the pipe network, along with a set of initial conditions, rules of operation, and uses this information to compute flows, pressures, and water quality throughout the network, for a certain period of time.
+
+.. code-block:: python
+
+    print('USER: Give me the command to load a network?')
+    prompt = d.generatePrompt(df, num_pages, 'Give me the command to load a network?')
+    response = d.sendPrompt(prompt, model="gpt-3.5-turbo", temperature=0.9)
     print('AI')
     print(response)
 
-    print('USER')
-    prompt = d.generatePrompt(df, num_pages, 'Give me an example get the node elevations with matlab code?')
-    response = d.sendPrompt(prompt)
-    print('AI')
-    print(response)
+What is the command to load a network?
+
+The command to load a network is:
+
+G = epanet( ’BWSN_Network_1 .inp’);%Load EPANET Input file
+
+G.loadMSXFile( ’Arsenite .msx’);%Load MSX file
 
 Features
 --------
