@@ -11,6 +11,7 @@ from openai.embeddings_utils import get_embedding, cosine_similarity
 class PDFBot:
 
     def __init__(self, openai_key):
+        self.filename = 'embedding data'
         openai.api_key = openai_key
         self.slice_stop = 20000
 
@@ -121,23 +122,45 @@ class PDFBot:
         min_len = min(result['text_length'][0:3])
         if min_len > 4000:
             min_len = 4000
+        try:
+            if len(result) == 1:
+                res1 = result.iloc[0][0][:7000]
+            else:
+                res1 = result.iloc[0][0][:4000]
+
+        except:
+            res1 = result.iloc[0][0][:min_len]
 
         if len(result) == 1:
             prompt = f"""Given the question: {message} and the following embeddings as data:
-                               1. {result.iloc[0][0][:min_len]}
+                               1. {res1}
                            Give an answer based only on the data where I provide or return \"Not specified\".
                            """
         elif len(result) == 2:
+            try:
+                if min_len < 2000:
+                    res2 = result.iloc[1][0][:4000 - min_len]
+                else:
+                    res2 = result.iloc[1][0][:3500]
+            except:
+                res2 = result.iloc[1][0][:min_len]
             prompt = f"""Given the question: {message} and the following embeddings as data:
-                               1. {result.iloc[0][0][:min_len]}
-                               2. {result.iloc[1][0][:min_len-500]}
+                               1. {res1}
+                               2. {res2}
                            Give an answer based only on the data where I provide or return \"Not specified\".
                            """
         else:
+            try:
+                if min_len < 1000:
+                    res3 = result.iloc[2][0][:1000 - min_len]
+                else:
+                    res3 = result.iloc[2][0][:500]
+            except:
+                res3 = result.iloc[2][0][:min_len]
             prompt = f"""Given the question: {message} and the following embeddings as data:
-                               1. {result.iloc[0][0][:min_len]}
-                               2. {result.iloc[1][0][:min_len-500]}
-                               3. {result.iloc[2][0][:min_len-3500]}
+                               1. {res1}
+                               2. {res2}
+                               3. {res3}
                            Give an answer based only on the data where I provide or return \"Not specified\".
                            """
         return prompt
