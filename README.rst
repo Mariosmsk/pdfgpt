@@ -43,7 +43,7 @@ Example
     d = PDFBot(openai_key='OPENAI_KEY')
 
     print('Example')
-    extracted_text, num_pages = d.generateText(file_path='epanet_matlab_toolkit.pdf')
+    extracted_text, num_pages = d.generateText(file_path='tests/epanet_matlab_toolkit.pdf')
     df = d.generateEmbeddings(extracted_text)
 
     print('USER: What is EPANET?')
