@@ -13,7 +13,7 @@ response = d.sendPrompt(prompt, model="gpt-3.5-turbo")
 print('AI')
 print(response, '\n')
 
-print('USER: Give me a minimum example code?')
+print('USER: Give me the command to load a network?')
 prompt = d.generatePrompt(df, num_pages, 'Give me the command to load a network?')
 response = d.sendPrompt(prompt, model="gpt-3.5-turbo", temperature=0.9)
 print('AI')
