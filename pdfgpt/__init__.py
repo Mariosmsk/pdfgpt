@@ -2,6 +2,6 @@
 
 __author__ = """Marios S. Kyriakou"""
 __email__ = 'kiriakou.marios@ucy.ac.cy'
-__version__ = '0.1.0'
+__version__ = '0.2.2'
 
 from .pdfgpt import *

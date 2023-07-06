@@ -16,3 +16,4 @@ plotly
 scipy
 scikit-learn
 tiktoken
+tenacity

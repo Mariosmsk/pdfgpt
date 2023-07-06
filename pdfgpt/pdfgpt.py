@@ -131,38 +131,26 @@ class PDFBot:
         except:
             res1 = result.iloc[0][0][:min_len]
 
-        if len(result) == 1:
-            prompt = f"""Given the question: {message} and the following embeddings as data:
-                               1. {res1}
-                           Give an answer based only on the data where I provide or return \"Not specified\".
-                           """
-        elif len(result) == 2:
-            try:
-                if min_len < 2000:
-                    res2 = result.iloc[1][0][:4000 - min_len]
-                else:
-                    res2 = result.iloc[1][0][:3500]
-            except:
-                res2 = result.iloc[1][0][:min_len]
-            prompt = f"""Given the question: {message} and the following embeddings as data:
-                               1. {res1}
-                               2. {res2}
-                           Give an answer based only on the data where I provide or return \"Not specified\".
-                           """
-        else:
-            try:
-                if min_len < 1000:
-                    res3 = result.iloc[2][0][:1000 - min_len]
-                else:
-                    res3 = result.iloc[2][0][:500]
-            except:
-                res3 = result.iloc[2][0][:min_len]
-            prompt = f"""Given the question: {message} and the following embeddings as data:
-                               1. {res1}
-                               2. {res2}
-                               3. {res3}
-                           Give an answer based only on the data where I provide or return \"Not specified\".
-                           """
+        try:
+            if min_len < 2000:
+                res2 = result.iloc[1][0][:4000 - min_len]
+            else:
+                res2 = result.iloc[1][0][:3500]
+        except:
+            res2 = result.iloc[1][0][:min_len]
+        try:
+            if min_len < 1000:
+                res3 = result.iloc[2][0][:1000 - min_len]
+            else:
+                res3 = result.iloc[2][0][:500]
+        except:
+            res3 = result.iloc[2][0][:min_len]
+        prompt = f"""Given the question: {message} and the following embeddings as data:
+                           1. {res1}
+                           2. {res2}
+                           3. {res3}
+                       Give an answer based only on the data where I provide or return \"Not specified\".
+                       """
         return prompt
 
     # Sends a prompt to the OpenAI API and return the response

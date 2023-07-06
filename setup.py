@@ -10,7 +10,8 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=7.0', 'openai', 'pandas', 'pypdf', 'matplotlib', 'plotly', 'scipy', 'scikit-learn', 'tiktoken']
+requirements = ['Click>=7.0', 'openai', 'pandas', 'pypdf', 'matplotlib', 'plotly', 'scipy', 'scikit-learn',
+                'tiktoken', 'tenacity']
 
 test_requirements = []
 
@@ -27,6 +28,8 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
     ],
     description="pdfgpt is a Python package that provides users with the ability to engage in natural language "
                 "conversations with their PDF documents.",
@@ -45,6 +48,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/Mariosmsk/pdfgpt',
-    version='0.2.1',
+    version='0.2.2',
     zip_safe=False,
 )
