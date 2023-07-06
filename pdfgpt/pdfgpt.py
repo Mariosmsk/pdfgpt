@@ -132,19 +132,25 @@ class PDFBot:
             res1 = result.iloc[0][0][:min_len]
 
         try:
-            if min_len < 2000:
-                res2 = result.iloc[1][0][:4000 - min_len]
-            else:
-                res2 = result.iloc[1][0][:3500]
+            try:
+                if min_len < 2000:
+                    res2 = result.iloc[1][0][:4000 - min_len]
+                else:
+                    res2 = result.iloc[1][0][:3500]
+            except:
+                res2 = result.iloc[1][0][:min_len]
         except:
-            res2 = result.iloc[1][0][:min_len]
+            res2 = ''
         try:
-            if min_len < 1000:
-                res3 = result.iloc[2][0][:1000 - min_len]
-            else:
-                res3 = result.iloc[2][0][:500]
+            try:
+                if min_len < 1000:
+                    res3 = result.iloc[2][0][:1000 - min_len]
+                else:
+                    res3 = result.iloc[2][0][:500]
+            except:
+                res3 = result.iloc[2][0][:min_len]
         except:
-            res3 = result.iloc[2][0][:min_len]
+            res3 = ''
         prompt = f"""Given the question: {message} and the following embeddings as data:
                            1. {res1}
                            2. {res2}
