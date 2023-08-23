@@ -10,7 +10,7 @@ pdfgpt
         :target: https://pdfgpt.readthedocs.io/en/latest/?version=latest
         :alt: Documentation Status
 
-.. image:: https://pepy.tech/badge/pdfgpt
+.. image:: https://static.pepy.tech/badge/pdfgpt
         :target: https://pepy.tech/badge/pdfgpt
         :alt: Downloads
 
